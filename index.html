@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Jiyang Jiang | Bioinformatics Scientist</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+            --text-color: #333;
+            --background-color: #f9f9f9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .header-text {
+            flex: 2;
+        }
+        
+        .profile-container {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid white;
+            overflow: hidden;
+            margin: 0 auto;
+            background-color: #ddd;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-links {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        section:last-child {
+            border-bottom: none;
+        }
+        
+        h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .research-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .research-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .research-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .research-image {
+            height: 180px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .research-content {
+            padding: 1.5rem;
+        }
+        
+        .research-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .tool-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .publications-list {
+            list-style-type: none;
+        }
+        
+        .publication-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .publication-title {
+            font-size: 1.3rem;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .publication-authors {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+        
+        .publication-journal {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .publication-abstract {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .contact-form {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        .contact-info {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .social-links {
+            margin: 1rem 0;
+        }
+        
+        .social-icon {
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            color: white;
+            transition: color 0.3s;
+        }
+        
+        .social-icon:hover {
+            color: var(--accent-color);
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            
+            .profile-pic {
+                margin-bottom: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links a {
+                margin-bottom: 0.5rem;
+            }
+            
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-text">
+                <h1>Dr. Jiyang Jiang</h1>
+                <h2>Bioinformatics Scientist | Genomic Data Analysis | Biomedical Data Analysis</h2>
+            </div>
+            <div class="profile-container">
+                <div class="profile-pic">
+                    <!-- Replace with your actual profile pic -->
+                    <img src="images/ChatGPT_10_10_49_AM.png" alt="Dr. Jiyang Jiang" width="100%" height="100%">
+                </div>
+                <div class="profile-links">
+                    <a href="https://github.com/jjyjoy1" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+               </div>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-links">
+            <a href="#about">About Me</a>
+            <a href="#research">Research</a>
+            <a href="#tools">Tools & Skills</a>
+            <a href="#publications">Publications</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+    <main>
+        <section id="about">
+            <h3>About Me</h3>
+            <div class="about-grid">
+                <div>
+                    <p>
+                        I am a <strong>bioinformatics scientist</strong> passionate about unlocking biological insights through <strong>NGS data analysis, multi-omics data integration, machine learning, and scalable computational tools</strong>. With over <strong>10 years of experience</strong>—spanning a Ph.D. in Immunology, postdoctoral training, and industry research—I specialize in translating complex genomic data into actionable discoveries for <strong>cancer genomics, precision medicine, and liquid biopsy diagnostics</strong>.
+                    </p>
+                    
+                    <p>My work focuses on:</p>
+                    
+                    <div class="focus-item">
+                        <strong>Liquid Biopsy Innovation</strong>
+                        Engineering UMI-based cfDNA detection assays and CLIA-certified bioinformatics pipelines for sensitive variant detection in oncology.
+                    </div>
+                    
+                    <div class="focus-item">
+                        <strong>High-Throughput NGS Data Analysis</strong>
+                        Building reproducible workflows (Snakemake/Nextflow) for WGS, single-cell RNA-seq, and proteomics, with optimized cloud/HPC deployments (AWS, SLURM).
+                    </div>
+                    
+                    <div class="focus-item">
+                        <strong>Cross-Omics Integration</strong>
+                        Leveraging VAEs, graph-based ML, and interpretable AI (SHAP, PCA) to unify genomics, proteomics, and immune profiling data.
+                    </div>
+                    
+                    <div class="focus-item">
+                        <strong>Biomarker Discovery</strong>
+                        Developing end-to-end ML/DL pipelines (TensorFlow/PyTorch) to predict drug response, patient survival, and therapeutic subgroups.
+                    </div>
+                    
+                    <p>
+                        I also create <strong>open-source tools</strong> and interactive platforms (Streamlit, Dash) to democratize data exploration, and collaborate globally to advance computational biology.
+                    </p>
+                </div>
+                <div>
+                    <h4>Education</h4>
+                    <ul>
+                        <li>Ph.D. in Immunology, Peking University</li>
+                        <li>Post-Doctoral Training in Vanderbilt University</li>
+                    </ul>
+                    <h4>Professional Experience</h4>
+                    <ul>
+                        <li>Bioinformatics Scientist, SYSMEX (2022-Present)</li>
+                        <li>Bioinformatics Scientist, SAIC (2020-2022)</li>
+                        <li>Bioinformatics Scientist, Engility (2014-2020)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="research">
+            <h3>Research Interests</h3>
+            <div class="research-items">
+                <div class="research-item">
+                    <div class="research-image">
+                        <img src="images/Screenshot2.png" alt="NGS Data Analysis" width="90%" height="120%">
+                    </div>
+                    <div class="research-content">
+                        <h4 class="research-title">NGS Data Analysis</h4>
+                        <p>Applying computational methods to understand the genetic basis of cancer, including mutation detection, gene expression analysis, and biomarker discovery.</p>
+                    </div>
+                </div>
+                
+                <div class="research-item">
+                    <div class="research-image">
+                        <img src="images/Screenshot3.png" alt="Machine Learning in BioMedical Research" width="90%" height="120%">
+                    </div>
+                    <div class="research-content">
+                        <h4 class="research-title">Machine Learning in BioMedical Research</h4>
+                        <p>Developing and applying machine learning algorithms to integrate multi-omics data, disease associations, and drug responses from genomic data.</p>
+                    </div>
+                </div>
+                
+                <div class="research-item">
+                    <div class="research-image">
+                        <img src="images/Screenshot5.png" alt="Single-cell Analysis" width="90%" height="120%">
+                    </div>
+                    <div class="research-content">
+                        <h4 class="research-title">Single-cell Analysis</h4>
+                        <p>Computational methods for analyzing single-cell RNA sequencing data to understand cellular heterogeneity and trajectories.</p>
+                        <div class="tool-links">
+                        <a href="https://github.com/jjyjoy1/scSeq_Analysis" target="_blank" title="scRNA">
+                            <i class="fab fa-github"></i>
+                            <span>scSeq_Analysis</span>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="tools">
+            <h3>Tools & Skills</h3>
+            <div class="tools-grid">
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <h4>NGS Analysis</h4>
+                    <p>RNA-seq, ChIP-seq, ATAC-seq, WGS, Metagenomics</p>
+                    <div class="tool-links">
+                        <a href="https://github.com/jjyjoy1/NGS_Analysis_Pipelines" target="_blank" title="NGS">
+                            <i class="fab fa-github"></i>
+                            <span>NGS_Analysis</span>
+                        </a>
+                        <a href="https://github.com/jjyjoy1/Bulk_RNASeq_Analysis" target="_blank" title="RNASeq">
+                            <i class="fab fa-github"></i>
+                            <span>RNASeq_Analysis</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4>Programming</h4>
+                    <p>Python, R, Bash, JavaScripts</p>
+                    <div class="tool-links">
+                        <a href="https://github.com/jjyjoy1/NGS_Analysis_Pipelines/tree/main/Bioinformatics_Pipeline" target="_blank" title="Coding">
+                            <i class="fab fa-github"></i>
+                            <span>Python</span>
+                        </a>
+                        <a href="https://github.com/jjyjoy1/MCP_App" target="_blank" title="MCP_App">
+                            <i class="fab fa-github"></i>
+                            <span>JavaScripts</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h4>Machine Learning</h4>
+                    <p>TensorFlow, PyTorch, scikit-learn</p>
+                    <div class="tool-links">
+                        <a href="https://github.com/jjyjoy1/ML_Data_Analysis" target="_blank" title="ML">
+                            <i class="fab fa-github"></i>
+                            <span>Machine Learning</span>
+                        </a>
+                        <a href="https://github.com/jjyjoy1/BioMark_Discovery" target="_blank" title="BioMarker">
+                            <i class="fab fa-github"></i>
+                            <span>BioMarker</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h4>Databases</h4>
+                    <p>SQL, MongoDB</p>
+                    <div class="tool-links">
+                        <a href="https://github.com/jjyjoy1/MCP_App/tree/main/LLM_Usage/SQL_Ollama" target="_blank" title="SQL">
+                            <i class="fab fa-github"></i>
+                            <span>SQL</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h4>HPC</h4>
+                    <p>Slurm, AWS, Environment Module, Easybuild</p>
+                    <div class="tool-links">
+                        <a href="https://github.com/jjyjoy1/Easybuild" target="_blank" title="HPC">
+                            <i class="fab fa-github"></i>
+                            <span>HPC</span>
+                        </a>
+                        <a href="https://github.com/jjyjoy1/BioDocker" target="_blank" title="BioDocker">
+                            <i class="fab fa-github"></i>
+                            <span>BioDocker</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h4>Workflows</h4>
+                    <p>Snakemake, Nextflow, AirFlow</p>
+                    <div class="tool-links">
+                        <a href="https://github.com/jjyjoy1/NGS_Analysis_Pipelines" target="_blank" title="WorkFlow">
+                            <i class="fab fa-github"></i>
+                            <span>WorkFlow</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="publications">
+            <h3>Selected Publications</h3>
+            <ul class="publications-list">
+                <li class="publication-item">
+                    <h4 class="publication-title">The interdomain linker region of HIV-1 capsid protein is a critical determinant of proper core assembly and stability.</h4>
+                    <p class="publication-authors">Jiang Jiyang, et al</p>
+                    <p class="publication-journal">Virology. Dec 2011, 421(2):253-65</p>
+                </li>
+                
+                <li class="publication-item">
+                    <h4 class="publication-title">Maturation-dependent human immunodeficiency virus type 1 particle fusion requires a carboxyl-terminal region of the gp41 cytoplasmic tail. </h4>
+                    <p class="publication-authors">Jiang, Jiyang, et al</p>
+                    <p class="publication-journal">J Virol. 2007 Sep; 81(18):9999-10008</p>
+                </li>
+                
+                <li class="publication-item">
+                    <h4 class="publication-title">Maturation of the viral core enhances the fusion of HIV-1 particles with primary human T cells and monocyte-derived macrophages.</h4>
+                    <p class="publication-authors">Jiang, Jiyang, et al</p>
+                    <p class="publication-journal">Virology. 2006 Mar 15; 346(2):460-8</p>
+                </li>
+            </ul>
+        </section>
+        
+        <section id="contact">
+            <h3>Contact Me</h3>
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <p>jiyang.jiang@gmail.com</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <p>(301) 915-4806</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <p>Rockville, MD<br><br>Rockville, MD 20850</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <p>Office Hours: Monday-Friday, 9 AM - 5 PM</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Dr. Jane Doe. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-google-scholar"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-orcid"></i></a>
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Basic form validation and submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real website, you would send this data to a server
+            // For this example, we'll just show an alert
+            alert('Thank you for your message! In a real website, this would be sent to the server.');
+            this.reset();
+        });
+        
+        // Add active class to current section in navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    currentSection = '#' + section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
