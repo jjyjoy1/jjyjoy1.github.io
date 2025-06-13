@@ -4,36 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Jiyang Jiang | Bioinformatics Scientist</title>
+    <meta name="description" content="Dr. Jiyang Jiang's personal website. Expert in bioinformatics, genomics, machine learning, and computational biology.">
+    <meta name="keywords" content="Jiyang Jiang, Bioinformatics, Genomics, Machine Learning, NGS, Precision Medicine, Cancer Research">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
             --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
             --light-color: #ecf0f1;
             --dark-color: #34495e;
-            --text-color: #333;
-            --background-color: #f9f9f9;
+            --text-color: #2c3e50;
+            --background-color: #ffffff;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
         
         body {
             background-color: var(--background-color);
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.7;
+            overflow-x: hidden;
         }
         
+        /* Header Styles */
         header {
-            background-color: var(--primary-color);
+            background: var(--gradient-primary);
             color: white;
-            padding: 2rem 0;
+            padding: 4rem 0;
             position: relative;
             overflow: hidden;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.1)"><polygon points="0,0 1000,0 1000,100 0,80"/></svg>');
+            background-size: cover;
         }
         
         .header-content {
@@ -41,48 +66,102 @@
             margin: 0 auto;
             padding: 0 2rem;
             position: relative;
-            z-index: 1;
-            display: flex;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
             align-items: center;
-            justify-content: space-between;
         }
         
-        .header-text {
-            flex: 2;
+        .header-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .header-text h2 {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-weight: 300;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        
+        .header-description {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out 0.4s both;
         }
         
         .profile-container {
-            flex: 1;
             text-align: center;
+            animation: fadeInRight 1s ease-out 0.6s both;
         }
         
         .profile-pic {
-            width: 180px;
-            height: 180px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
-            border: 4px solid white;
+            border: 6px solid rgba(255, 255, 255, 0.3);
             overflow: hidden;
-            margin: 0 auto;
-            background-color: #ddd;
+            margin: 0 auto 2rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            position: relative;
         }
         
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+        .profile-pic:hover {
+            transform: scale(1.05);
         }
         
-        h2 {
-            font-size: 1.3rem;
-            font-weight: 400;
-            opacity: 0.9;
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* Navigation */
         nav {
-            background-color: var(--secondary-color);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
         
         .nav-links {
@@ -90,284 +169,518 @@
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 2rem;
         }
         
         .nav-links a {
-            color: white;
+            color: var(--text-color);
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background-color 0.3s;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
         }
         
-        .nav-links a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--gradient-secondary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
+        /* Main Content */
         main {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 4rem 2rem;
         }
         
         section {
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 6rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
         }
         
-        section:last-child {
-            border-bottom: none;
-        }
+        section:nth-child(1) { animation-delay: 0.1s; }
+        section:nth-child(2) { animation-delay: 0.2s; }
+        section:nth-child(3) { animation-delay: 0.3s; }
+        section:nth-child(4) { animation-delay: 0.4s; }
+        section:nth-child(5) { animation-delay: 0.5s; }
         
         h3 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: var(--gradient-primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: 700;
         }
         
+        /* About Section */
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: start;
         }
         
-        .research-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .research-item {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .research-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .research-image {
-            height: 180px;
-            background-color: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        
-        .research-content {
-            padding: 1.5rem;
-        }
-        
-        .research-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
+        .about-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
             color: var(--dark-color);
         }
         
-        .tools-grid {
+        .focus-items {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             gap: 1.5rem;
+            margin: 2rem 0;
         }
         
-        .tool-item {
-            background-color: white;
-            border-radius: 8px;
-            padding: 1.5rem;
+        .focus-item {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid var(--secondary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .focus-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--card-shadow);
+        }
+        
+        .focus-item strong {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .about-sidebar {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            height: fit-content;
+        }
+        
+        .about-sidebar h4 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .about-sidebar ul {
+            list-style: none;
+        }
+        
+        .about-sidebar li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .about-sidebar li:last-child {
+            border-bottom: none;
+        }
+        
+        .about-sidebar li::before {
+            content: '▸';
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        /* Research Section */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+        
+        .research-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .research-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .research-image {
+            height: 200px;
+            background: var(--gradient-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .research-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .research-card:hover .research-image img {
+            transform: scale(1.1);
+        }
+        
+        .research-content {
+            padding: 2.5rem;
+        }
+        
+        .research-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .research-highlights {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .research-highlights li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .research-highlights li::before {
+            content: '✓';
+            color: var(--success-color);
+            font-weight: bold;
+            margin-top: 0.2rem;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .tech-tag {
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        /* Tools Section */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
         
         .tool-icon {
-            font-size: 2.5rem;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        
+        .tool-card h4 {
+            font-size: 1.3rem;
             margin-bottom: 1rem;
             color: var(--primary-color);
         }
         
-        .publications-list {
-            list-style-type: none;
+        .tool-links {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
         
-        .publication-item {
-            background-color: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        .tool-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--gradient-accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .tool-links a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Publications Section */
+        .publications-grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .publication-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .publication-card:hover {
+            transform: translateX(10px);
         }
         
         .publication-title {
             font-size: 1.3rem;
-            color: var(--dark-color);
-            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.4;
         }
         
         .publication-authors {
             font-style: italic;
+            color: var(--dark-color);
             margin-bottom: 0.5rem;
-            color: #555;
         }
         
         .publication-journal {
             color: var(--accent-color);
-            margin-bottom: 1rem;
+            font-weight: 500;
         }
         
-        .publication-abstract {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #eee;
+        /* Contact Section */
+        .contact-content {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--card-shadow);
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
             gap: 2rem;
         }
         
-        .contact-form {
-            background-color: white;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--dark-color);
-        }
-        
-        input, textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-        
-        textarea {
-            height: 150px;
-            resize: vertical;
-        }
-        
-        button {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            font-size: 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        button:hover {
-            background-color: #2980b9;
-        }
-        
-        .contact-info {
-            background-color: white;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .info-item {
+        .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 1.5rem;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 16px;
+            transition: transform 0.3s ease;
         }
         
-        .info-icon {
+        .contact-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .contact-icon {
             font-size: 1.5rem;
-            margin-right: 1rem;
-            color: var(--primary-color);
+            color: white;
+            background: var(--gradient-primary);
+            padding: 1rem;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
+        /* Footer */
         footer {
-            background-color: var(--secondary-color);
+            background: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 2rem 0;
+            padding: 3rem 0;
+            margin-top: 4rem;
         }
         
-        .social-links {
-            margin: 1rem 0;
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
         }
         
-        .social-icon {
-            font-size: 1.5rem;
-            margin: 0 0.5rem;
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
             color: white;
-            transition: color 0.3s;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
         }
         
-        .social-icon:hover {
-            color: var(--accent-color);
+        .footer-social a:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
         }
         
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
             .header-content {
-                flex-direction: column-reverse;
+                grid-template-columns: 1fr;
                 text-align: center;
+                gap: 2rem;
             }
             
             .profile-pic {
-                margin-bottom: 1rem;
+                width: 200px;
+                height: 200px;
             }
             
             .nav-links {
                 flex-wrap: wrap;
-                justify-content: center;
+                gap: 1rem;
             }
             
-            .nav-links a {
-                margin-bottom: 0.5rem;
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
             
-            .about-grid,
-            .contact-grid {
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tools-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            h3 {
+                font-size: 2rem;
+            }
+            
+            main {
+                padding: 2rem 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-content {
+                padding: 0 1rem;
+            }
+            
+            .profile-pic {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .tools-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
     <!-- Font Awesome for icons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="header-content">
             <div class="header-text">
-                <p>&copy; 2025 Dr. Jiyang Jiang. All rights reserved.</p>
                 <h1>Dr. Jiyang Jiang</h1>
-                <h2>Bioinformatics Scientist | Genomic Data Analysis | Biomedical Data Analysis</h2>
-                <meta name="description" content="Dr. Jiyang Jiang's personal website. Expert in bioinformatics, genomics, machine learning, and computational biology.">
-                <meta name="keywords" content="Jiyang Jiang, Bioinformatics, Genomics, Machine Learning, NGS, Precision Medicine, Cancer Research">
-                <link rel="icon" href="favicon.ico" type="image/x-icon">
+                <h2>Bioinformatics Scientist | Genomic Data Analysis | AI in Biomedical Research</h2>
+                <p class="header-description">
+                    Transforming complex genomic data into actionable insights through advanced computational methods, 
+                    machine learning, and innovative analytical pipelines for precision medicine and liquid biopsy diagnostics.
+                </p>
             </div>
             <div class="profile-container">
                 <div class="profile-pic">
-                    <!-- Replace with your actual profile pic -->
-                    <img src="images/ChatGPT_10_10_49_AM.png" alt="Dr. Jiyang Jiang" width="100%" height="100%">
+                    <img src="images/My_website_image.png">
                 </div>
-                <div class="profile-links">
-                    <a href="https://github.com/jjyjoy1" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <div class="social-links">
+                    <a href="https://github.com/jjyjoy1" target="_blank" rel="noopener noreferrer" class="social-link">
                         <i class="fab fa-github"></i>
                         <span>GitHub</span>
                     </a>
-               </div>
+                </div>
             </div>
         </div>
     </header>
@@ -381,196 +694,282 @@
             <a href="#contact">Contact</a>
         </div>
     </nav>
+
     <main>
         <section id="about">
             <h3>About Me</h3>
             <div class="about-grid">
-                <div>
+                <div class="about-content">
                     <p>
-                        I am a <strong>bioinformatics scientist</strong> passionate about unlocking biological insights through <strong>NGS data analysis, multi-omics data integration, machine learning, and scalable computational tools</strong>. With over <strong>10 years of experience</strong>—spanning a Ph.D. in Immunology, postdoctoral training, and industry research—I specialize in translating complex genomic data into actionable discoveries for <strong>cancer genomics, precision medicine, and liquid biopsy diagnostics</strong>.
+                        I am a <strong>bioinformatics scientist</strong> passionate about unlocking biological insights through 
+                        <strong>NGS data analysis, multi-omics data integration, machine learning, and scalable computational tools</strong>. 
+                        With over <strong>10 years of experience</strong>—spanning a Ph.D. in Immunology, postdoctoral training, 
+                        and industry research—I specialize in translating complex genomic data into actionable discoveries for 
+                        <strong>cancer genomics, precision medicine, and liquid biopsy diagnostics</strong>.
                     </p>
                     
-                    <p>My work focuses on:</p>
-                    
-                    <div class="focus-item">
-                        <strong>Liquid Biopsy Innovation</strong>
-                        Engineering UMI-based cfDNA detection assays and CLIA-certified bioinformatics pipelines for sensitive variant detection in oncology.
-                    </div>
-                    
-                    <div class="focus-item">
-                        <strong>High-Throughput NGS Data Analysis</strong>
-                        Building reproducible workflows (Snakemake/Nextflow) for WGS, single-cell RNA-seq, and proteomics, with optimized cloud/HPC deployments (AWS, SLURM).
-                    </div>
-                    
-                    <div class="focus-item">
-                        <strong>Cross-Omics Integration</strong>
-                        Leveraging VAEs, graph-based ML, and interpretable AI (SHAP, PCA) to unify genomics, proteomics, and immune profiling data.
-                    </div>
-                    
-                    <div class="focus-item">
-                        <strong>Biomarker Discovery</strong>
-                        Developing end-to-end ML/DL pipelines (TensorFlow/PyTorch) to predict drug response, patient survival, and therapeutic subgroups.
+                    <div class="focus-items">
+                        <div class="focus-item">
+                            <strong>🧬 Liquid Biopsy Innovation</strong>
+                            Engineering UMI-based cfDNA detection assays and CLIA-certified bioinformatics pipelines for sensitive variant detection in oncology.
+                        </div>
+                        
+                        <div class="focus-item">
+                            <strong>🔬 High-Throughput NGS Analysis</strong>
+                            Building reproducible workflows (Snakemake/Nextflow) for WGS, single-cell RNA-seq, and proteomics, with optimized cloud/HPC deployments.
+                        </div>
+                        
+                        <div class="focus-item">
+                            <strong>🤖 AI-Driven Genomics</strong>
+                            Leveraging deep learning, reinforcement learning, and LLMs for biomarker discovery, sequence design, and multi-omics integration.
+                        </div>
+                        
+                        <div class="focus-item">
+                            <strong>📊 Precision Medicine</strong>
+                            Developing end-to-end ML/DL pipelines to predict drug response, patient survival, and therapeutic subgroups.
+                        </div>
                     </div>
                     
                     <p>
-                        I also create <strong>open-source tools</strong> and interactive platforms (Streamlit, Dash) to democratize data exploration, and collaborate globally to advance computational biology.
+                        I create <strong>open-source tools</strong> and interactive platforms (Streamlit, Dash) to democratize 
+                        data exploration, and collaborate globally to advance computational biology through innovative research and development.
                     </p>
                 </div>
-                <div>
-                    <h4>Education</h4>
+                
+                <div class="about-sidebar">
+                    <h4><i class="fas fa-graduation-cap"></i> Education</h4>
                     <ul>
                         <li>Ph.D. in Immunology, Peking University</li>
-                        <li>Post-Doctoral Training in Vanderbilt University</li>
+                        <li>Post-Doctoral Training, Vanderbilt University</li>
                     </ul>
-                    <h4>Professional Experience</h4>
+                    
+                    <h4><i class="fas fa-briefcase"></i> Experience</h4>
                     <ul>
                         <li>Bioinformatics Scientist, SYSMEX (2022-Present)</li>
                         <li>Bioinformatics Scientist, SAIC (2020-2022)</li>
                         <li>Bioinformatics Scientist, Engility (2014-2020)</li>
+                    </ul>
+                    
+                    <h4><i class="fas fa-award"></i> Expertise</h4>
+                    <ul>
+                        <li>NGS Pipeline Development</li>
+                        <li>Machine Learning & AI</li>
+                        <li>Single-Cell Analysis</li>
+                        <li>Clinical Translation</li>
                     </ul>
                 </div>
             </div>
         </section>
         
         <section id="research">
-            <h3>Research Interests</h3>
-            <div class="research-items">
-                <div class="research-item">
+            <h3>Research Expertise</h3>
+            <div class="research-grid">
+                <div class="research-card">
                     <div class="research-image">
-                        <img src="images/Screenshot2.png" alt="NGS Data Analysis" width="90%" height="120%">
+                        <img src="images/Screenshot2.png" alt="NGS Data Analysis">
                     </div>
                     <div class="research-content">
                         <h4 class="research-title">NGS Data Analysis</h4>
-                        <p>Applying computational methods to understand the genetic basis of cancer, including mutation detection, gene expression analysis, and biomarker discovery.</p>
+                        <p>Advanced computational methods for comprehensive genomic analysis, from raw sequencing data to clinically actionable insights.</p>
+                        
+                        <ul class="research-highlights">
+                            <li>Custom pipeline architecture for UMI-tagged and shotgun sequencing</li>
+                            <li>CLIA-compliant validation protocols and clinical translation</li>
+                            <li>Liquid biopsy development and end-to-end validation</li>
+                            <li>AI-driven primer/probe design using reinforcement learning</li>
+                            <li>LLM applications for genomic sequence analysis</li>
+                        </ul>
+                        
+                        <div class="tech-tags">
+                            <span class="tech-tag">Nextflow</span>
+                            <span class="tech-tag">Snakemake</span>
+                            <span class="tech-tag">Optuna</span>
+                            <span class="tech-tag">CLIA</span>
+                            <span class="tech-tag">Nanopore</span>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="research-item">
+                <div class="research-card">
                     <div class="research-image">
-                        <img src="images/Screenshot3.png" alt="Machine Learning in BioMedical Research" width="90%" height="120%">
+                        <img src="images/Screenshot3.png" alt="Machine Learning">
                     </div>
                     <div class="research-content">
-                        <h4 class="research-title">Machine Learning in BioMedical Research</h4>
-                        <p>Developing and applying machine learning algorithms to integrate multi-omics data, disease associations, and drug responses from genomic data.</p>
+                        <h4 class="research-title">Machine Learning in Biomedical Research</h4>
+                        <p>Cutting-edge AI applications spanning traditional statistical learning to large language models for biomedical discovery.</p>
+                        
+                        <ul class="research-highlights">
+                            <li>Multi-omics integration with clinical data using scikit-learn</li>
+                            <li>Deep learning architectures (VAEs, Graph Neural Networks)</li>
+                            <li>Reinforcement learning for sequence alignment optimization</li>
+                            <li>Specialized biomedical LLMs (DNABert, scBert)</li>
+                            <li>RAG systems with natural language SQL interfaces</li>
+                        </ul>
+                        
+                        <div class="tech-tags">
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">PyTorch</span>
+                            <span class="tech-tag">scikit-learn</span>
+                            <span class="tech-tag">Optuna</span>
+                            <span class="tech-tag">Streamlit</span>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="research-item">
+                <div class="research-card">
                     <div class="research-image">
-                        <img src="images/Screenshot5.png" alt="Single-cell Analysis" width="90%" height="120%">
+                        <img src="images/Screenshot5.png" alt="Single Cell Analysis">
                     </div>
                     <div class="research-content">
-                        <h4 class="research-title">Single-cell Analysis</h4>
-                        <p>Computational methods for analyzing single-cell RNA sequencing data to understand cellular heterogeneity and trajectories.</p>
+                        <h4 class="research-title">Single-Cell Data Analysis</h4>
+                        <p>Comprehensive analytical frameworks for understanding cellular heterogeneity and developmental trajectories.</p>
+                        
+                        <ul class="research-highlights">
+                            <li>Cross-platform integration (Python/R) in unified workflows</li>
+                            <li>Specialized applications: CRISPRko, spatial transcriptomics, immune repertoire</li>
+                            <li>Deep learning integration (VAEs, DCA) for multi-modal analysis</li>
+                            <li>Hypothesis-driven analysis frameworks with automated optimization</li>
+                            <li>Real-time monitoring and quality control systems</li>
+                        </ul>
+                        
+                        <div class="tech-tags">
+                            <span class="tech-tag">Scanpy</span>
+                            <span class="tech-tag">Seurat</span>
+                            <span class="tech-tag">scvi-tools</span>
+                            <span class="tech-tag">Snakemake</span>
+                            <span class="tech-tag">VAEs</span>
+                        </div>
+                        
                         <div class="tool-links">
-                        <a href="https://github.com/jjyjoy1/scSeq_Analysis" target="_blank" title="scRNA">
-                            <i class="fab fa-github"></i>
-                            <span>scSeq_Analysis</span>
-                        </a>
-                    </div>
+                            <a href="https://github.com/jjyjoy1/scSeq_Analysis" target="_blank">
+                                <i class="fab fa-github"></i>
+                                scSeq_Analysis
+                            </a>
+                            <a href="https://github.com/jjyjoy1/scRNA_TwoSteps" target="_blank">
+                                <i class="fab fa-github"></i>
+                                Two_steps_scSeq_Analysis
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         
         <section id="tools">
-            <h3>Tools & Skills</h3>
+            <h3>Tools & Technologies</h3>
             <div class="tools-grid">
-                <div class="tool-item">
+                <div class="tool-card">
                     <div class="tool-icon">
                         <i class="fas fa-dna"></i>
                     </div>
                     <h4>NGS Analysis</h4>
-                    <p>RNA-seq, ChIP-seq, ATAC-seq, WGS, Metagenomics</p>
+                    <p>Comprehensive genomics pipelines for RNA-seq, ChIP-seq, ATAC-seq, WGS, and Metagenomics</p>
                     <div class="tool-links">
-                        <a href="https://github.com/jjyjoy1/NGS_Analysis_Pipelines" target="_blank" title="NGS">
+                        <a href="https://github.com/jjyjoy1/NGS_Analysis_Pipelines" target="_blank">
                             <i class="fab fa-github"></i>
-                            <span>NGS_Analysis</span>
+                            NGS Pipelines
                         </a>
-                        <a href="https://github.com/jjyjoy1/Bulk_RNASeq_Analysis" target="_blank" title="RNASeq">
+                        <a href="https://github.com/jjyjoy1/Bulk_RNASeq_Analysis" target="_blank">
                             <i class="fab fa-github"></i>
-                            <span>RNASeq_Analysis</span>
+                            RNA-seq
+                        </a>
+                        <a href="https://github.com/jjyjoy1/Meta_Novelty" target="_blank">
+                            <i class="fab fa-github"></i>
+                            Metagenomics Data
+                        </a>
+                        <a href="https://github.com/jjyjoy1/DQN_Aligner" target="_blank">
+                            <i class="fab fa-github"></i>
+                            NGS Reinforcement Learning Aligner
                         </a>
                     </div>
                 </div>
-                <div class="tool-item">
+                
+                <div class="tool-card">
                     <div class="tool-icon">
                         <i class="fas fa-code"></i>
                     </div>
                     <h4>Programming</h4>
-                    <p>Python, R, Bash, JavaScripts</p>
+                    <p>Multi-language proficiency: Python, R, JavaScript, Bash for comprehensive data analysis</p>
                     <div class="tool-links">
-                        <a href="https://github.com/jjyjoy1/NGS_Analysis_Pipelines/tree/main/Bioinformatics_Pipeline" target="_blank" title="Coding">
+                        <a href="https://github.com/jjyjoy1/Bioinformatics_Pipeline" target="_blank">
                             <i class="fab fa-github"></i>
-                            <span>Python</span>
+                            Python Tools
                         </a>
-                        <a href="https://github.com/jjyjoy1/MCP_App" target="_blank" title="MCP_App">
+                        <a href="https://github.com/jjyjoy1/MCP_App" target="_blank">
                             <i class="fab fa-github"></i>
-                            <span>JavaScripts</span>
+                            JS Applications
+                        </a>
+                        <a href="https://github.com/jjyjoy1/OligoRL_Design" target="_blank">
+                            <i class="fab fa-github"></i>
+                            Oligo Designing Using Reinforcement Learning Algorithm
                         </a>
                     </div>
                 </div>
                 
-                <div class="tool-item">
+                <div class="tool-card">
                     <div class="tool-icon">
                         <i class="fas fa-brain"></i>
                     </div>
                     <h4>Machine Learning</h4>
-                    <p>TensorFlow, PyTorch, scikit-learn</p>
+                    <p>Advanced AI/ML frameworks: TensorFlow, PyTorch, scikit-learn for biomedical applications</p>
                     <div class="tool-links">
-                        <a href="https://github.com/jjyjoy1/ML_Data_Analysis" target="_blank" title="ML">
+                        <a href="https://github.com/jjyjoy1/ML_Data_Analysis" target="_blank">
                             <i class="fab fa-github"></i>
-                            <span>Machine Learning</span>
+                            ML Analysis
                         </a>
-                        <a href="https://github.com/jjyjoy1/BioMark_Discovery" target="_blank" title="BioMarker">
+                        <a href="https://github.com/jjyjoy1/Metagenomics_DNABert" target="_blank">
                             <i class="fab fa-github"></i>
-                            <span>BioMarker</span>
+                            LLM Usage
+                        </a>
+                        <a href="https://github.com/jjyjoy1/BioMark_Discovery" target="_blank">
+                            <i class="fab fa-github"></i>
+                            Biomarkers
                         </a>
                     </div>
                 </div>
                 
-                <div class="tool-item">
+                <div class="tool-card">
                     <div class="tool-icon">
                         <i class="fas fa-database"></i>
                     </div>
-                    <h4>Databases</h4>
-                    <p>SQL, MongoDB</p>
+                    <h4>Data Management</h4>
+                    <p>Database systems and query optimization: SQL, MongoDB with LLM-powered interfaces</p>
                     <div class="tool-links">
-                        <a href="https://github.com/jjyjoy1/MCP_App/tree/main/LLM_Usage/SQL_Ollama" target="_blank" title="SQL">
+                        <a href="https://github.com/jjyjoy1/MCP_App/tree/main/LLM_Usage/SQL_Ollama" target="_blank">
                             <i class="fab fa-github"></i>
-                            <span>SQL</span>
+                            SQL Tools
                         </a>
                     </div>
                 </div>
                 
-                <div class="tool-item">
+                <div class="tool-card">
                     <div class="tool-icon">
                         <i class="fas fa-server"></i>
                     </div>
-                    <h4>HPC</h4>
-                    <p>Slurm, AWS, Environment Module, Easybuild</p>
+                    <h4>High-Performance Computing</h4>
+                    <p>Scalable computing: SLURM, AWS, Environment Modules, container technologies</p>
                     <div class="tool-links">
-                        <a href="https://github.com/jjyjoy1/Easybuild" target="_blank" title="HPC">
+                        <a href="https://github.com/jjyjoy1/Easybuild" target="_blank">
                             <i class="fab fa-github"></i>
-                            <span>HPC</span>
+                            HPC Tools
                         </a>
-                        <a href="https://github.com/jjyjoy1/BioDocker" target="_blank" title="BioDocker">
+                        <a href="https://github.com/jjyjoy1/BioDocker" target="_blank">
                             <i class="fab fa-github"></i>
-                            <span>BioDocker</span>
+                            Containers
                         </a>
                     </div>
                 </div>
                 
-                <div class="tool-item">
+                <div class="tool-card">
                     <div class="tool-icon">
                         <i class="fas fa-project-diagram"></i>
                     </div>
-                    <h4>Workflows</h4>
-                    <p>Snakemake, Nextflow, AirFlow</p>
+                    <h4>Workflow Management</h4>
+                    <p>Robust pipeline orchestration: Snakemake, Nextflow, Airflow for reproducible research</p>
                     <div class="tool-links">
-                        <a href="https://github.com/jjyjoy1/NGS_Analysis_Pipelines" target="_blank" title="WorkFlow">
+                        <a href="https://github.com/jjyjoy1/NGS_Analysis_Pipelines" target="_blank">
                             <i class="fab fa-github"></i>
-                            <span>WorkFlow</span>
+                            Workflows
                         </a>
                     </div>
                 </div>
@@ -579,57 +978,69 @@
         
         <section id="publications">
             <h3>Selected Publications</h3>
-            <ul class="publications-list">
-                <li class="publication-item">
+            <div class="publications-grid">
+                <div class="publication-card">
                     <h4 class="publication-title">The interdomain linker region of HIV-1 capsid protein is a critical determinant of proper core assembly and stability.</h4>
                     <p class="publication-authors">Jiang Jiyang, et al</p>
                     <p class="publication-journal">Virology. Dec 2011, 421(2):253-65</p>
-                </li>
+                </div>
                 
-                <li class="publication-item">
-                    <h4 class="publication-title">Maturation-dependent human immunodeficiency virus type 1 particle fusion requires a carboxyl-terminal region of the gp41 cytoplasmic tail. </h4>
+                <div class="publication-card">
+                    <h4 class="publication-title">Maturation-dependent human immunodeficiency virus type 1 particle fusion requires a carboxyl-terminal region of the gp41 cytoplasmic tail.</h4>
                     <p class="publication-authors">Jiang, Jiyang, et al</p>
                     <p class="publication-journal">J Virol. 2007 Sep; 81(18):9999-10008</p>
-                </li>
+                </div>
                 
-                <li class="publication-item">
+                <div class="publication-card">
                     <h4 class="publication-title">Maturation of the viral core enhances the fusion of HIV-1 particles with primary human T cells and monocyte-derived macrophages.</h4>
                     <p class="publication-authors">Jiang, Jiyang, et al</p>
                     <p class="publication-journal">Virology. 2006 Mar 15; 346(2):460-8</p>
-                </li>
-            </ul>
+                </div>
+            </div>
         </section>
         
         <section id="contact">
-            <h3>Contact Me</h3>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <div class="info-icon">
+            <h3>Get In Touch</h3>
+            <div class="contact-content">
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
-                        <p>jiyang.jiang@gmail.com</p>
+                        <div>
+                            <strong>Email</strong>
+                            <p>jiyang.jiang@gmail.com</p>
+                        </div>
                     </div>
                     
-                    <div class="info-item">
-                        <div class="info-icon">
+                    <div class="contact-item">
+                        <div class="contact-icon">
                             <i class="fas fa-phone"></i>
                         </div>
-                        <p>(301) 915-4806</p>
+                        <div>
+                            <strong>Phone</strong>
+                            <p>(301) 915-4806</p>
+                        </div>
                     </div>
                     
-                    <div class="info-item">
-                        <div class="info-icon">
+                    <div class="contact-item">
+                        <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <p>Rockville, MD<br><br>Rockville, MD 20850</p>
+                        <div>
+                            <strong>Location</strong>
+                            <p>Rockville, MD 20850</p>
+                        </div>
                     </div>
                     
-                    <div class="info-item">
-                        <div class="info-icon">
+                    <div class="contact-item">
+                        <div class="contact-icon">
                             <i class="fas fa-clock"></i>
                         </div>
-                        <p>Office Hours: Monday-Friday, 9 AM - 5 PM</p>
+                        <div>
+                            <strong>Availability</strong>
+                            <p>Monday-Friday, 9 AM - 5 PM</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -637,67 +1048,101 @@
     </main>
     
     <footer>
-        <p>&copy; 2025 Dr. Jane Doe. All rights reserved.</p>
-        <div class="social-links">
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-google-scholar"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-orcid"></i></a>
+        <p>&copy; 2025 Dr. Jiyang Jiang. All rights reserved.</p>
+        <div class="footer-social">
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/jjyjoy1" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" aria-label="Google Scholar"><i class="fab fa-google-scholar"></i></a>
+            <a href="#" aria-label="ORCID"><i class="fas fa-id-card"></i></a>
         </div>
     </footer>
     
     <script>
-        // Smooth scrolling for navigation links
+        // Enhanced smooth scrolling with offset for sticky navigation
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
+                const navHeight = document.querySelector('nav').offsetHeight;
                 
                 window.scrollTo({
-                    top: targetElement.offsetTop - 70,
+                    top: targetElement.offsetTop - navHeight - 20,
                     behavior: 'smooth'
                 });
-            });
-        });
-        
-        // Basic form validation and submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // In a real website, you would send this data to a server
-            // For this example, we'll just show an alert
-            alert('Thank you for your message! In a real website, this would be sent to the server.');
-            this.reset();
-        });
-        
-        // Add active class to current section in navigation
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('nav a');
-            
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.clientHeight;
                 
-                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-                    currentSection = '#' + section.getAttribute('id');
+                // Update active nav link
+                document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Intersection Observer for section highlighting and animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '-100px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Update active navigation
+                    const navLinks = document.querySelectorAll('nav a');
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    
+                    const activeLink = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+                    if (activeLink) activeLink.classList.add('active');
                 }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.backdropFilter = 'blur(20px)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.backdropFilter = 'blur(10px)';
+            }
+        });
+        
+        // Enhanced card hover effects
+        document.querySelectorAll('.research-card, .tool-card, .publication-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
             });
             
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === currentSection) {
-                    link.classList.add('active');
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+        
+        // Performance optimization: Lazy load animations
+        const animationObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
+        }, { threshold: 0.1 });
+        
+        // Apply to elements that should animate on scroll
+        document.querySelectorAll('.research-card, .tool-card, .focus-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            animationObserver.observe(el);
         });
     </script>
 </body>
 </html>
-
-
